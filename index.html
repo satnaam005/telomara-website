@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Telomara — Regulatory Verification for Batch Records</title>
-<meta name="description" content="Telomara cross-references batch records and qualification documents against your regulatory library automatically, on-premise, in minutes instead of weeks.">
+<meta name="description" content="Telomara is an on-premise Augmented Review Assistant that flags potential gaps in batch records and qualification documents so your reviewers can decide faster. Humans retain GxP authority.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -184,7 +184,11 @@
       </h1>
 
       <p class="mt-6 text-lg leading-relaxed max-w-lg" style="color:var(--ink-soft)">
-        Telomara reads batch records and qualification documents line by line, maps each one to the exact regulatory clause it must satisfy, and flags what doesn't line up — before your reviewers ever open the file.
+        Telomara is an <strong>Augmented Review Assistant</strong>: it reads batch records and qualification documents line by line, maps each one to the regulatory clause it must satisfy, and flags what doesn't line up so reviewers can work the exceptions first. AI suggestions are advisory; qualified humans retain GxP decision authority.
+      </p>
+
+      <p class="mt-4 text-sm max-w-lg rounded-lg px-3 py-2" style="background:var(--flag-bg); color:var(--flag);">
+        On-premise / offline-ready pilot software. Not marketed as a fully validated automated release system or a certified 21 CFR Part 11 substitute.
       </p>
 
       <div class="mt-9 flex flex-col sm:flex-row gap-3">
@@ -198,13 +202,11 @@
 
       <div class="mt-10 flex items-center gap-x-8">
         <div>
-          <div class="ticker text-3xl font-semibold">70%</div>
-          <div class="text-xs mt-1" style="color:#6B7280">less review time</div>
+          <div class="text-sm font-semibold leading-snug max-w-[12rem]">On-premise / air-gapped ready</div>
         </div>
         <div class="w-px h-9" style="background:var(--line)"></div>
         <div>
-          <div class="ticker text-3xl font-semibold">100%</div>
-          <div class="text-xs mt-1" style="color:#6B7280">on-premise data residency</div>
+          <div class="text-sm font-semibold leading-snug max-w-[12rem]">Human sign-off stays with you</div>
         </div>
       </div>
     </div>
@@ -213,7 +215,7 @@
     <div class="trace-wrap p-6 card-shadow">
       <div class="doc-head mb-3 flex justify-between">
         <span>BATCH-RECORD · LOT 24118-B</span>
-        <span class="stamp"><i class="fa-solid fa-check mr-1"></i>VERIFIED</span>
+        <span class="stamp" style="color:var(--flag); border-color:var(--flag); background:var(--flag-bg);"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FLAGGED FOR REVIEW</span>
       </div>
 
       <div class="grid grid-cols-2 gap-5 relative">
@@ -241,7 +243,7 @@
       </div>
 
       <div class="mt-4 pt-4 border-t hairline flex items-center justify-between">
-        <span class="doc-head">Mapped in 1.4s · Confidence 98%</span>
+        <span class="doc-head">Illustrative demo · Flags for human review</span>
         <span class="doc-head" style="color:var(--flag)"><i class="fa-solid fa-triangle-exclamation mr-1"></i>2 clauses flagged elsewhere</span>
       </div>
     </div>
@@ -286,7 +288,7 @@
     <div class="grid lg:grid-cols-2 gap-14 items-center">
       <div>
         <span class="eyebrow" style="color:var(--steel)">The approach</span>
-        <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight leading-tight">One engine, reading everything against everything.</h2>
+        <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight leading-tight">One engine that helps your team check documents against your rules.</h2>
         <p class="mt-5 text-lg leading-relaxed" style="color:var(--ink-soft)">
           Telomara ingests your regulatory library once — CFR sections, ICH guidelines, internal SOPs — and keeps it current. Every document you upload after that is checked against the full set automatically, with each finding traced back to its source clause.
         </p>
@@ -396,7 +398,7 @@
         <h3 class="font-display text-2xl font-bold mb-1">Pooja Chowdhury, M.Sc.</h3>
         <p class="text-sm text-[var(--steel)] font-semibold mb-4 uppercase tracking-wider font-mono">Co-Founder & Quality Ops Lead</p>
         <p class="text-sm leading-relaxed" style="color:var(--ink-soft)">
-          A Life Sciences professional with 9+ years across R&D, clinical quality, and digital QMS environments (Alcon, Novartis, Philips). Pooja specializes in GxP compliance (EU MDR, 21 CFR, ISO 13485) and audit readiness. She architects Telomara's practical application, translating complex NLP pipelines into automated validation engines for enterprise QMS workflows.
+          A Life Sciences professional with 9+ years across R&D, clinical quality, and digital QMS environments (Alcon, Novartis, Philips). Pooja specializes in GxP compliance (EU MDR, 21 CFR, ISO 13485) and audit readiness. She architects Telomara's practical application, translating complex NLP pipelines into an augmented review workflow for enterprise QMS.
         </p>
          <div class="mt-4 flex gap-2 flex-wrap">
             <span class="text-[10px] bg-white text-[var(--ink-soft)] px-2 py-1 rounded border hairline">Digital QMS (Veeva/TrackWise)</span>
