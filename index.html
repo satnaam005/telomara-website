@@ -34,7 +34,7 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
     overflow: hidden; 
-    height: 100vh;
+    height: 100dvh; /* Uses dynamic viewport height for mobile */
     width: 100vw;
   }
   
@@ -80,7 +80,7 @@
   .story-container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 120px); 
+    height: 100dvh; 
     overflow: hidden;
   }
 
@@ -95,7 +95,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
+    /* Extra top padding for the larger logo, extra bottom padding for the mobile footer */
+    padding: 6rem 1.5rem 11rem 1.5rem; 
     overflow-y: auto; 
   }
 
@@ -170,19 +171,13 @@
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255,255,255,0.1);
     z-index: 50;
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
   }
   
   .footer-tabs button {
     background: transparent;
     border: 1px solid rgba(255,255,255,0.2);
     color: var(--brand-text);
-    padding: 0.35rem 1rem;
     border-radius: 999px;
-    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.2s ease;
   }
@@ -195,20 +190,31 @@
 </head>
 <body>
 
-  <!-- Persistent Brand Logo -->
-  <div class="fixed top-6 left-6 z-50 flex items-center gap-x-4 cursor-pointer" onclick="goToSlide(0, true)">
-    <img src="Telomara.jpeg" alt="Telomara Logo" class="w-14 h-14 rounded-xl shadow-md object-cover">
-    <span class="text-2xl font-display font-semibold tracking-tight text-white hidden sm:block">Telomara</span>
+  <!-- Persistent Brand Header -->
+  <div class="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 flex items-center gap-x-3">
+    <!-- Click to Zoom Logo -->
+    <img src="Telomara.jpeg" alt="Telomara Logo" onclick="openLogoZoom()" class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-md object-cover cursor-zoom-in hover:opacity-90 transition-opacity" title="Click to zoom">
+    
+    <!-- Click to go to start text -->
+    <div class="hidden sm:flex flex-col cursor-pointer hover:opacity-80 transition-opacity" onclick="goToSlide(0, true)" title="Restart Story">
+      <span class="text-xl sm:text-2xl font-display font-semibold tracking-tight text-white leading-none mt-1">Telomara</span>
+      <span class="text-[0.65rem] sm:text-[0.7rem] text-[var(--brand-accent)] font-mono tracking-widest uppercase mt-1.5">Intelligence. Secured.</span>
+    </div>
+
+    <!-- Explicit Go Home Button -->
+    <button onclick="goToSlide(0, true)" class="ml-1 sm:ml-3 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/20 transition-all cursor-pointer shadow-sm" aria-label="Go Home" title="Go Home">
+      <i class="fa-solid fa-house text-sm sm:text-base"></i>
+    </button>
   </div>
 
   <div class="story-container">
 
-    <!-- SLIDE 0: The Greeting (Typewriter, Auto-advances in 5s) -->
+    <!-- SLIDE 0: The Greeting -->
     <div class="slide active" id="slide-0">
-      <div class="max-w-4xl mx-auto text-center flex justify-center w-full">
-        <!-- Typewriter Wrapper -->
+      <div class="max-w-5xl mx-auto text-center flex justify-center w-full">
+        <!-- Typewriter Wrapper with CSS Clamp for mobile scaling -->
         <div class="typewriter-container">
-          <h1 class="font-display text-5xl sm:text-7xl font-semibold tracking-tight leading-tight">
+          <h1 class="font-display font-semibold tracking-tight leading-tight" style="font-size: clamp(1.75rem, 6vw, 4.5rem);">
             Hello! We are Telomara.
           </h1>
         </div>
@@ -218,7 +224,7 @@
     <!-- SLIDE 1: The Product Reveal -->
     <div class="slide" id="slide-1">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="font-display text-4xl sm:text-6xl font-semibold tracking-tight leading-tight">
+        <h1 class="font-display text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight">
           We bring to you our first product, which is an AI-powered Augmented Review Assistant for Life Sciences.
         </h1>
         <button class="btn-next-arrow" onclick="goToSlide(2, true)" aria-label="Next slide">
@@ -230,33 +236,33 @@
     <!-- SLIDE 2: The Bottleneck -->
     <div class="slide" id="slide-2">
       <div class="max-w-6xl mx-auto w-full">
-        <div class="text-center mb-10">
+        <div class="text-center mb-8 sm:mb-10">
           <span class="eyebrow">The Bottleneck</span>
-          <h2 class="font-display text-3xl sm:text-5xl font-semibold mt-3 tracking-tight">
+          <h2 class="font-display text-2xl sm:text-4xl md:text-5xl font-semibold mt-3 tracking-tight">
             Verification doesn't scale with headcount — it scales with fatigue.
           </h2>
         </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="content-card p-8 text-center sm:text-left">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
+        <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+          <div class="content-card p-6 sm:p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 sm:mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
               <i class="fa-solid fa-layer-group" style="color:var(--verify)"></i>
             </div>
-            <h4 class="font-display font-semibold text-xl mb-2.5">Volume outpaces reviewers</h4>
-            <p class="text-sm" style="color:var(--ink-soft)">Batch records and qualification packets arrive faster than any QA team can read them line by line.</p>
+            <h4 class="font-display font-semibold text-lg sm:text-xl mb-2">Volume outpaces reviewers</h4>
+            <p class="text-xs sm:text-sm" style="color:var(--ink-soft)">Batch records and qualification packets arrive faster than any QA team can read them line by line.</p>
           </div>
-          <div class="content-card p-8 text-center sm:text-left">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
+          <div class="content-card p-6 sm:p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 sm:mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
               <i class="fa-solid fa-magnifying-glass" style="color:var(--verify)"></i>
             </div>
-            <h4 class="font-display font-semibold text-xl mb-2.5">Cross-referencing is manual</h4>
-            <p class="text-sm" style="color:var(--ink-soft)">Every clause has to be matched against a regulation by hand, then matched again after revisions.</p>
+            <h4 class="font-display font-semibold text-lg sm:text-xl mb-2">Cross-referencing is manual</h4>
+            <p class="text-xs sm:text-sm" style="color:var(--ink-soft)">Every clause has to be matched against a regulation by hand, then matched again after revisions.</p>
           </div>
-          <div class="content-card p-8 text-center sm:text-left">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--flag-bg)">
+          <div class="content-card p-6 sm:p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 sm:mb-5 mx-auto sm:mx-0" style="background:var(--flag-bg)">
               <i class="fa-solid fa-triangle-exclamation" style="color:var(--flag)"></i>
             </div>
-            <h4 class="font-display font-semibold text-xl mb-2.5">Fatigue becomes risk</h4>
-            <p class="text-sm" style="color:var(--ink-soft)">A missed inconsistency on page 40 of a batch record can mean a delayed release or a 483 observation.</p>
+            <h4 class="font-display font-semibold text-lg sm:text-xl mb-2">Fatigue becomes risk</h4>
+            <p class="text-xs sm:text-sm" style="color:var(--ink-soft)">A missed inconsistency on page 40 of a batch record can mean a delayed release or a 483 observation.</p>
           </div>
         </div>
         <button class="btn-next-arrow" onclick="goToSlide(3, true)" aria-label="Next slide">
@@ -267,16 +273,16 @@
 
     <!-- SLIDE 3: The Solution (Trace Map) -->
     <div class="slide" id="slide-3">
-      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
         <div class="text-center lg:text-left">
           <span class="eyebrow">The Solution</span>
-          <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-3 tracking-tight leading-[1.05]">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-3 tracking-tight leading-[1.05]">
             Every record, checked against the rule that governs it.
           </h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          <p class="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-slate-300">
             Telomara acts as an <strong>Augmented Review Assistant</strong>. It reads documents line by line, maps them to regulatory clauses (21 CFR, EU MDR, ISO), and flags gaps. 
           </p>
-          <ul class="mt-6 space-y-4 text-sm text-slate-200 inline-block text-left">
+          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm text-slate-200 inline-block text-left">
             <li class="flex gap-x-3">
               <i class="fa-solid fa-check mt-1 text-[var(--brand-accent)]"></i>
               <span><strong class="font-semibold text-white">Runs on-premise.</strong> Nothing leaves your network.</span>
@@ -289,13 +295,13 @@
         </div>
 
         <!-- Signature diagram -->
-        <div class="content-card p-6 relative overflow-hidden text-left">
+        <div class="content-card p-4 sm:p-6 relative overflow-hidden text-left">
           <div class="doc-head mb-3 flex justify-between font-mono text-[.68rem] text-slate-500 font-semibold tracking-wider">
             <span>BATCH-RECORD · LOT 24118-B</span>
             <span class="stamp" style="color:var(--flag); border-color:var(--flag); background:var(--flag-bg);"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FLAGGED</span>
           </div>
-          <div class="grid grid-cols-2 gap-5 relative">
-            <div class="doc-card p-4 space-y-2.5 shadow-sm">
+          <div class="grid grid-cols-2 gap-3 sm:gap-5 relative">
+            <div class="doc-card p-3 sm:p-4 space-y-2.5 shadow-sm">
               <div class="doc-head mb-1">Batch record, §4.2</div>
               <div class="doc-line w-[92%]"></div>
               <div class="doc-line w-[78%]"></div>
@@ -303,7 +309,7 @@
               <div class="doc-line w-[60%]"></div>
               <div class="doc-line w-[70%]"></div>
             </div>
-            <div class="doc-card p-4 space-y-2.5 shadow-sm">
+            <div class="doc-card p-3 sm:p-4 space-y-2.5 shadow-sm">
               <div class="doc-head mb-1">21 CFR 211.188(b)(11)</div>
               <div class="doc-line w-[80%]"></div>
               <div class="doc-line hit w-[90%]"></div>
@@ -325,28 +331,28 @@
     <!-- SLIDE 4: The Team -->
     <div class="slide" id="slide-4">
       <div class="max-w-5xl mx-auto w-full">
-        <div class="mb-10 text-center">
+        <div class="mb-8 sm:mb-10 text-center">
           <span class="eyebrow">The Founders</span>
-          <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight text-white">Connecting scientific research, digital QMS, and business ops.</h2>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2 sm:mt-3 tracking-tight text-white">Connecting scientific research, digital QMS, and business ops.</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 text-center sm:text-left">
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8 text-center sm:text-left">
           <!-- Abhinoy -->
           <div class="content-card p-6 sm:p-8 flex flex-col items-center sm:items-start">
-            <img src="Abhinoy%20kishore_2.png" alt="Dr. Abhinoy Kishore" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-4 border-slate-100 mb-5 shadow-sm">
-            <h3 class="font-display text-2xl font-bold mb-1">Dr. Abhinoy Kishore, Ph.D.</h3>
-            <p class="text-xs font-semibold mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Chief Scientist</p>
-            <p class="text-sm leading-relaxed text-[var(--ink-soft)]">
-              Dr. Abhinoy Kishore began his journey exploring the intricate depths of neuro-virology and nanobiotechnology. After more than eight years of rigorous research at prestigious institutions like IISc and INST, he realized that strict scientific logic could be mapped directly into computational models. At Telomara, he ensures our AI inherently understands the strict realities of life sciences, grounding our technology in true scientific discipline.
+            <img src="Abhinoy%20kishore_2.png" alt="Dr. Abhinoy Kishore" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-top border-4 border-slate-100 mb-4 shadow-sm">
+            <h3 class="font-display text-xl sm:text-2xl font-bold mb-1">Dr. Abhinoy Kishore, Ph.D.</h3>
+            <p class="text-[0.65rem] sm:text-xs font-semibold mb-3 sm:mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Chief Scientist</p>
+            <p class="text-xs sm:text-sm leading-relaxed text-[var(--ink-soft)]">
+              Dr. Abhinoy Kishore began his journey exploring the intricate depths of neuro-virology and nanobiotechnology. After more than eight years of rigorous research at institutions like IISc and INST, he realized that strict scientific logic could be mapped directly into computational models. At Telomara, he ensures our AI inherently understands the strict realities of life sciences, grounding our technology in true scientific discipline.
             </p>
           </div>
 
           <!-- Pooja -->
           <div class="content-card p-6 sm:p-8 flex flex-col items-center sm:items-start">
-            <img src="Pooja%20Chowdhury.png.jpg" alt="Pooja Chowdhury" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-4 border-slate-100 mb-5 shadow-sm">
-            <h3 class="font-display text-2xl font-bold mb-1">Pooja Chowdhury, M.Sc.</h3>
-            <p class="text-xs font-semibold mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Quality Ops Lead</p>
-            <p class="text-sm leading-relaxed text-[var(--ink-soft)]">
+            <img src="Pooja%20Chowdhury.png.jpg" alt="Pooja Chowdhury" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-top border-4 border-slate-100 mb-4 shadow-sm">
+            <h3 class="font-display text-xl sm:text-2xl font-bold mb-1">Pooja Chowdhury, M.Sc.</h3>
+            <p class="text-[0.65rem] sm:text-xs font-semibold mb-3 sm:mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Quality Ops Lead</p>
+            <p class="text-xs sm:text-sm leading-relaxed text-[var(--ink-soft)]">
               Pooja Chowdhury spent over nine years inside the digital QMS environments of leaders like Alcon, Novartis, and Philips, seeing firsthand how compliance fatigue slows down medical innovation. Combining her life sciences background with a deep passion for NLP and AI implementations, she bridges the gap between complex code and everyday quality operations. She translates Telomara's raw algorithms into practical, intuitive workflows that QA teams can actually trust.
             </p>
           </div>
@@ -359,70 +365,81 @@
 
     <!-- SLIDE 5: Contact / Demo -->
     <div class="slide" id="slide-5">
-      <div class="max-w-4xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+      <div class="max-w-4xl mx-auto w-full grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         <div class="text-center md:text-left">
           <span class="eyebrow">Get Started</span>
-          <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight">Request a demo</h2>
-          <p class="mt-4 text-slate-300">
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2 sm:mt-3 tracking-tight">Request a demo</h2>
+          <p class="mt-3 sm:mt-4 text-sm sm:text-base text-slate-300">
             Bring a real batch record or SOP. We'll run it through Telomara during the call so you see the mapping happen on your own document.
           </p>
-          <div class="mt-8 space-y-4 text-sm text-slate-200 inline-block text-left">
+          <div class="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-200 inline-block text-left">
             <div class="flex items-center gap-x-3"><i class="fa-solid fa-clock text-[var(--brand-accent)]"></i> 30-minute walkthrough</div>
             <div class="flex items-center gap-x-3"><i class="fa-solid fa-lock text-[var(--brand-accent)]"></i> Your document never leaves your environment</div>
           </div>
         </div>
 
-        <form action="mailto:founders@telomara.com" method="post" enctype="text/plain" class="content-card p-8 space-y-4 text-left">
+        <!-- REPLACED mailto: WITH SECURE FORMSPREE ENDPOINT -->
+        <!-- Replace YOUR_FORM_ID_HERE with your actual Formspree ID (e.g. xqkjoqvw) -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="content-card p-6 sm:p-8 space-y-4 text-left">
           <div>
-            <label class="text-sm font-medium block mb-1 text-[var(--ink)]" for="name">Full name</label>
+            <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="name">Full name</label>
             <input id="name" name="Full_Name" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
           </div>
           <div>
-            <label class="text-sm font-medium block mb-1 text-[var(--ink)]" for="email">Work email</label>
+            <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="email">Work email</label>
             <input id="email" name="Email" type="email" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
           </div>
           <div>
-            <label class="text-sm font-medium block mb-1 text-[var(--ink)]" for="company">Company</label>
+            <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="company">Company</label>
             <input id="company" name="Company" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
           </div>
           <div>
-            <label class="text-sm font-medium block mb-1 text-[var(--ink)]" for="notes">What would you like us to look at?</label>
+            <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="notes">What would you like us to look at?</label>
             <textarea id="notes" name="Notes" rows="2" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" placeholder="e.g. batch records against 21 CFR"></textarea>
           </div>
-          <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold mt-2">Send Request</button>
+          <button type="submit" class="btn-primary w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-lg font-semibold mt-2">Send Request</button>
         </form>
       </div>
     </div>
 
   </div>
 
-  <!-- PERSISTENT FOOTER -->
-  <footer class="persistent-footer">
+  <!-- PERSISTENT FOOTER (Mobile Optimized) -->
+  <footer class="persistent-footer p-3 sm:p-5 flex flex-col gap-2 sm:gap-3">
     
     <!-- Fast Track Navigation Tabs -->
-    <div class="footer-tabs flex flex-wrap gap-3 justify-center md:justify-start">
-      <button onclick="goToSlide(2, true)" id="tab-2">The Problem</button>
-      <button onclick="goToSlide(3, true)" id="tab-3">The Solution</button>
-      <button onclick="goToSlide(4, true)" id="tab-4">The Founders</button>
-      <button onclick="goToSlide(5, true)" id="tab-5">Request Demo</button>
+    <div class="footer-tabs flex flex-wrap gap-1.5 sm:gap-3 justify-center md:justify-start">
+      <button onclick="goToSlide(2, true)" id="tab-2" class="px-2 py-1 text-[0.65rem] sm:text-sm sm:px-4 sm:py-1.5">The Problem</button>
+      <button onclick="goToSlide(3, true)" id="tab-3" class="px-2 py-1 text-[0.65rem] sm:text-sm sm:px-4 sm:py-1.5">The Solution</button>
+      <button onclick="goToSlide(4, true)" id="tab-4" class="px-2 py-1 text-[0.65rem] sm:text-sm sm:px-4 sm:py-1.5">The Founders</button>
+      <button onclick="goToSlide(5, true)" id="tab-5" class="px-2 py-1 text-[0.65rem] sm:text-sm sm:px-4 sm:py-1.5">Request Demo</button>
     </div>
 
     <!-- Legal & Contact Info -->
-    <div class="flex flex-col md:flex-row justify-between items-center md:items-end text-xs text-slate-400 gap-4 text-center md:text-left mt-2">
-      <address class="not-italic leading-relaxed">
-        <strong class="text-slate-300">Registered office:</strong> A.V.S. COMPOUND, EJIPURA, No.472/7, BALAJI ARCADE, Koramangala VI Bk, Bangalore- 560095, Karnataka, India.<br>
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-end text-[0.6rem] sm:text-xs text-slate-400 gap-2 sm:gap-4 text-center md:text-left mt-1 sm:mt-2">
+      
+      <address class="not-italic leading-snug sm:leading-relaxed text-[0.55rem] sm:text-xs">
+        <span class="hidden sm:inline"><strong class="text-slate-300">Registered office:</strong> A.V.S. COMPOUND, EJIPURA, No.472/7, BALAJI ARCADE, Koramangala VI Bk, Bangalore- 560095, Karnataka, India.<br></span>
         <strong class="text-slate-300">CIN:</strong> U62011KA2026PTC225539
       </address>
-      <div class="flex items-center gap-x-6">
+      
+      <div class="flex items-center gap-x-4 sm:gap-x-6 text-[0.65rem] sm:text-xs">
         <a href="mailto:founders@telomara.com" class="hover:text-white transition">founders@telomara.com</a>
         <a href="https://www.linkedin.com/company/telomara/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition inline-flex items-center gap-1.5">
-          <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+          <i class="fa-brands fa-linkedin text-sm"></i> <span class="hidden sm:inline">LinkedIn</span>
         </a>
       </div>
+      
     </div>
   </footer>
 
-  <!-- Story Flow Logic -->
+  <!-- FULLSCREEN LOGO MODAL (Click to Zoom) -->
+  <div id="logo-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300" onclick="closeLogoZoom()">
+    <button class="absolute top-6 right-6 text-white text-4xl hover:text-[var(--brand-accent)] transition-colors" aria-label="Close zoom">&times;</button>
+    <img src="Telomara.jpeg" alt="Telomara Logo Fullscreen" id="zoomed-logo-img" class="max-w-[90vw] max-h-[90vh] rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 object-contain">
+  </div>
+
+  <!-- Scripts: Story Flow & Modal Logic -->
   <script>
     const slides = document.querySelectorAll('.slide');
     const tabs = document.querySelectorAll('.footer-tabs button');
@@ -466,6 +483,33 @@
 
     // Initialize first slide
     goToSlide(0);
+
+    // ---- LOGO ZOOM MODAL LOGIC ----
+    const logoModal = document.getElementById('logo-modal');
+    const zoomedLogo = document.getElementById('zoomed-logo-img');
+
+    function openLogoZoom() {
+      // Prevent the event from bubbling up if necessary
+      logoModal.classList.remove('hidden');
+      
+      // Small delay allows display:flex to apply before changing opacity for smooth fade-in
+      setTimeout(() => {
+        logoModal.classList.remove('opacity-0');
+        zoomedLogo.classList.remove('scale-95');
+        zoomedLogo.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeLogoZoom() {
+      logoModal.classList.add('opacity-0');
+      zoomedLogo.classList.remove('scale-100');
+      zoomedLogo.classList.add('scale-95');
+      
+      // Wait for fade-out transition to finish before hiding
+      setTimeout(() => {
+        logoModal.classList.add('hidden');
+      }, 300);
+    }
   </script>
 
 </body>
