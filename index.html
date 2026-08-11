@@ -13,8 +13,8 @@
   :root {
     /* --- BRAND COLORS --- */
     --brand-blue: #0A192F; /* Deep Company Blue Background */
-    --brand-text: #F8FAFC; /* Clean white/slate text for contrast */
-    --brand-accent: #38BDF8; /* Subtle blue accent */
+    --brand-text: #F8FAFC; 
+    --brand-accent: #38BDF8; 
     
     --ink: #10161F;
     --ink-soft: #374151;
@@ -33,7 +33,7 @@
     color: var(--brand-text);
     font-family: 'Inter', sans-serif;
     margin: 0;
-    overflow: hidden; /* Prevents global scrolling for the fluid experience */
+    overflow: hidden; 
     height: 100vh;
     width: 100vw;
   }
@@ -41,13 +41,32 @@
   .font-display { font-family: 'Space Grotesk', sans-serif; }
   .font-mono { font-family: 'IBM Plex Mono', monospace; }
 
-  /* Buttons for light cards on dark background */
   .btn-primary {
     background: #FFFFFF;
     color: var(--brand-blue);
     transition: transform .15s ease, opacity .2s ease;
   }
   .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  .btn-next-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin: 2rem auto 0 auto;
+  }
+  .btn-next-arrow:hover {
+    background: white;
+    color: var(--brand-blue);
+    transform: translateY(2px);
+  }
 
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
@@ -61,7 +80,7 @@
   .story-container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 120px); /* Leaves room for the persistent footer */
+    height: calc(100vh - 120px); 
     overflow: hidden;
   }
 
@@ -77,7 +96,7 @@
     align-items: center;
     justify-content: center;
     padding: 2rem 1.5rem;
-    overflow-y: auto; /* Allows scrolling inside a slide if screen is very small */
+    overflow-y: auto; 
   }
 
   .slide.active {
@@ -93,7 +112,7 @@
     transform: translateY(-20px);
   }
 
-  /* ---- Inner Elements & Cards (Kept White for Contrast against Blue) ---- */
+  /* ---- Inner Elements & Cards ---- */
   .content-card {
     background: #FFFFFF;
     color: var(--ink);
@@ -117,8 +136,6 @@
   .trace-svg path { stroke-dasharray: 220; stroke-dashoffset: 220; }
   .slide.active .trace-svg path { animation: draw 1.1s ease forwards; animation-delay: 0.3s; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-
-  .team-img { width: 100%; height: 280px; object-fit: cover; object-position: top; border-radius: 8px; background-color: #E9EBEE; }
 
   /* ---- PERSISTENT FOOTER ---- */
   .persistent-footer {
@@ -151,33 +168,19 @@
     color: var(--brand-blue);
     border-color: #FFFFFF;
   }
-
-  .progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: var(--brand-accent);
-    width: 0%;
-    z-index: 100;
-    transition: width 0.1s linear;
-  }
 </style>
 </head>
 <body>
 
-  <!-- Top Progress Bar (Visual indicator for the 5-second timer) -->
-  <div class="progress-bar" id="progress-bar"></div>
-
   <!-- Persistent Brand Logo -->
-  <div class="fixed top-6 left-6 z-50 flex items-center gap-x-3">
+  <div class="fixed top-6 left-6 z-50 flex items-center gap-x-3 cursor-pointer" onclick="goToSlide(0, true)">
     <img src="Telomara.jpeg" alt="Telomara Logo" class="w-10 h-10 rounded-lg shadow-md object-cover">
-    <span class="text-xl font-display font-semibold tracking-tight text-white">Telomara</span>
+    <span class="text-xl font-display font-semibold tracking-tight text-white hidden sm:block">Telomara</span>
   </div>
 
   <div class="story-container">
 
-    <!-- SLIDE 0: The Greeting (0-5s) -->
+    <!-- SLIDE 0: The Greeting (Auto-advances in 5s) -->
     <div class="slide active" id="slide-0">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="font-display text-5xl sm:text-7xl font-semibold tracking-tight leading-tight">
@@ -186,12 +189,15 @@
       </div>
     </div>
 
-    <!-- SLIDE 1: The Product Reveal (5-10s) -->
+    <!-- SLIDE 1: The Product Reveal -->
     <div class="slide" id="slide-1">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="font-display text-4xl sm:text-6xl font-semibold tracking-tight leading-tight">
           We bring to you our first product, which is an AI-powered Augmented Review Assistant for Life Sciences.
         </h1>
+        <button class="btn-next-arrow" onclick="goToSlide(2, true)" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
       </div>
     </div>
 
@@ -205,35 +211,38 @@
           </h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="content-card p-8">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:var(--verify-bg)">
+          <div class="content-card p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
               <i class="fa-solid fa-layer-group" style="color:var(--verify)"></i>
             </div>
             <h4 class="font-display font-semibold text-xl mb-2.5">Volume outpaces reviewers</h4>
             <p class="text-sm" style="color:var(--ink-soft)">Batch records and qualification packets arrive faster than any QA team can read them line by line.</p>
           </div>
-          <div class="content-card p-8">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:var(--verify-bg)">
+          <div class="content-card p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--verify-bg)">
               <i class="fa-solid fa-magnifying-glass" style="color:var(--verify)"></i>
             </div>
             <h4 class="font-display font-semibold text-xl mb-2.5">Cross-referencing is manual</h4>
             <p class="text-sm" style="color:var(--ink-soft)">Every clause has to be matched against a regulation by hand, then matched again after revisions.</p>
           </div>
-          <div class="content-card p-8">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:var(--flag-bg)">
+          <div class="content-card p-8 text-center sm:text-left">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 mx-auto sm:mx-0" style="background:var(--flag-bg)">
               <i class="fa-solid fa-triangle-exclamation" style="color:var(--flag)"></i>
             </div>
             <h4 class="font-display font-semibold text-xl mb-2.5">Fatigue becomes risk</h4>
             <p class="text-sm" style="color:var(--ink-soft)">A missed inconsistency on page 40 of a batch record can mean a delayed release or a 483 observation.</p>
           </div>
         </div>
+        <button class="btn-next-arrow" onclick="goToSlide(3, true)" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
       </div>
     </div>
 
     <!-- SLIDE 3: The Solution (Trace Map) -->
     <div class="slide" id="slide-3">
       <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+        <div class="text-center lg:text-left">
           <span class="eyebrow">The Solution</span>
           <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-3 tracking-tight leading-[1.05]">
             Every record, checked against the rule that governs it.
@@ -241,7 +250,7 @@
           <p class="mt-6 text-lg leading-relaxed text-slate-300">
             Telomara acts as an <strong>Augmented Review Assistant</strong>. It reads documents line by line, maps them to regulatory clauses (21 CFR, EU MDR, ISO), and flags gaps. 
           </p>
-          <ul class="mt-6 space-y-4 text-sm text-slate-200">
+          <ul class="mt-6 space-y-4 text-sm text-slate-200 inline-block text-left">
             <li class="flex gap-x-3">
               <i class="fa-solid fa-check mt-1 text-[var(--brand-accent)]"></i>
               <span><strong class="font-semibold text-white">Runs on-premise.</strong> Nothing leaves your network.</span>
@@ -253,8 +262,8 @@
           </ul>
         </div>
 
-        <!-- Signature diagram (White Card on Blue Background) -->
-        <div class="content-card p-6 relative overflow-hidden">
+        <!-- Signature diagram -->
+        <div class="content-card p-6 relative overflow-hidden text-left">
           <div class="doc-head mb-3 flex justify-between font-mono text-[.68rem] text-slate-500 font-semibold tracking-wider">
             <span>BATCH-RECORD · LOT 24118-B</span>
             <span class="stamp" style="color:var(--flag); border-color:var(--flag); background:var(--flag-bg);"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FLAGGED</span>
@@ -282,6 +291,9 @@
           </div>
         </div>
       </div>
+      <button class="btn-next-arrow" onclick="goToSlide(4, true)" aria-label="Next slide">
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
     </div>
 
     <!-- SLIDE 4: The Team -->
@@ -292,46 +304,49 @@
           <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight text-white">Connecting scientific research, digital QMS, and business ops.</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 text-center sm:text-left">
           <!-- Abhinoy -->
-          <div class="content-card p-6">
-            <img src="Abhinoy%20kishore_2.png" alt="Dr. Abhinoy Kishore" class="team-img mb-5">
+          <div class="content-card p-6 sm:p-8 flex flex-col items-center sm:items-start">
+            <img src="Abhinoy%20kishore_2.png" alt="Dr. Abhinoy Kishore" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-4 border-slate-100 mb-5 shadow-sm">
             <h3 class="font-display text-2xl font-bold mb-1">Dr. Abhinoy Kishore, Ph.D.</h3>
-            <p class="text-xs font-semibold mb-3 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Chief Scientist</p>
+            <p class="text-xs font-semibold mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Chief Scientist</p>
             <p class="text-sm leading-relaxed text-[var(--ink-soft)]">
-              Dr. Kishore brings over 8 years of post-Ph.D. research experience spanning virology, neuroscience, and nanobiotechnology. With a Ph.D. in Neuro-virology from IISER Kolkata and computational modeling expertise from IISc and INST, he ensures that our NLP compliance checks adhere to strict life sciences realities.
+              Dr. Abhinoy Kishore began his journey exploring the intricate depths of neuro-virology and nanobiotechnology. After more than eight years of rigorous research at prestigious institutions like IISc and INST, he realized that strict scientific logic could be mapped directly into computational models. At Telomara, he ensures our AI inherently understands the strict realities of life sciences, grounding our technology in true scientific discipline.
             </p>
           </div>
 
           <!-- Pooja -->
-          <div class="content-card p-6">
-            <img src="Pooja%20Chowdhury.png.jpg" alt="Pooja Chowdhury" class="team-img mb-5">
+          <div class="content-card p-6 sm:p-8 flex flex-col items-center sm:items-start">
+            <img src="Pooja%20Chowdhury.png.jpg" alt="Pooja Chowdhury" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-4 border-slate-100 mb-5 shadow-sm">
             <h3 class="font-display text-2xl font-bold mb-1">Pooja Chowdhury, M.Sc.</h3>
-            <p class="text-xs font-semibold mb-3 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Quality Ops Lead</p>
+            <p class="text-xs font-semibold mb-4 uppercase tracking-wider font-mono text-[var(--steel)]">Co-Founder &amp; Quality Ops Lead</p>
             <p class="text-sm leading-relaxed text-[var(--ink-soft)]">
-              With over 9 years of experience spanning digital QMS, clinical quality, and R&amp;D operations at Alcon, Novartis, and Philips, Pooja specializes in GxP compliance and audit readiness. She architects Telomara's practical application, translating complex AI pipelines into seamless augmented review workflows for enterprise QMS.
+              Pooja Chowdhury spent over nine years inside the digital QMS environments of leaders like Alcon, Novartis, and Philips, seeing firsthand how compliance fatigue slows down medical innovation. Combining her life sciences background with a deep passion for NLP and AI implementations, she bridges the gap between complex code and everyday quality operations. She translates Telomara's raw algorithms into practical, intuitive workflows that QA teams can actually trust.
             </p>
           </div>
         </div>
       </div>
+      <button class="btn-next-arrow" onclick="goToSlide(5, true)" aria-label="Next slide">
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
     </div>
 
     <!-- SLIDE 5: Contact / Demo -->
     <div class="slide" id="slide-5">
       <div class="max-w-4xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        <div>
+        <div class="text-center md:text-left">
           <span class="eyebrow">Get Started</span>
           <h2 class="font-display text-4xl font-semibold mt-3 tracking-tight">Request a demo</h2>
           <p class="mt-4 text-slate-300">
             Bring a real batch record or SOP. We'll run it through Telomara during the call so you see the mapping happen on your own document.
           </p>
-          <div class="mt-8 space-y-4 text-sm text-slate-200">
+          <div class="mt-8 space-y-4 text-sm text-slate-200 inline-block text-left">
             <div class="flex items-center gap-x-3"><i class="fa-solid fa-clock text-[var(--brand-accent)]"></i> 30-minute walkthrough</div>
             <div class="flex items-center gap-x-3"><i class="fa-solid fa-lock text-[var(--brand-accent)]"></i> Your document never leaves your environment</div>
           </div>
         </div>
 
-        <form action="mailto:founders@telomara.com" method="post" enctype="text/plain" class="content-card p-8 space-y-4">
+        <form action="mailto:founders@telomara.com" method="post" enctype="text/plain" class="content-card p-8 space-y-4 text-left">
           <div>
             <label class="text-sm font-medium block mb-1 text-[var(--ink)]" for="name">Full name</label>
             <input id="name" name="Full_Name" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
@@ -360,10 +375,10 @@
     
     <!-- Fast Track Navigation Tabs -->
     <div class="footer-tabs flex flex-wrap gap-3 justify-center md:justify-start">
-      <button onclick="goToSlide(2)" id="tab-2">The Problem</button>
-      <button onclick="goToSlide(3)" id="tab-3">The Solution</button>
-      <button onclick="goToSlide(4)" id="tab-4">The Founders</button>
-      <button onclick="goToSlide(5)" id="tab-5">Request Demo</button>
+      <button onclick="goToSlide(2, true)" id="tab-2">The Problem</button>
+      <button onclick="goToSlide(3, true)" id="tab-3">The Solution</button>
+      <button onclick="goToSlide(4, true)" id="tab-4">The Founders</button>
+      <button onclick="goToSlide(5, true)" id="tab-5">Request Demo</button>
     </div>
 
     <!-- Legal & Contact Info -->
@@ -385,25 +400,19 @@
   <script>
     const slides = document.querySelectorAll('.slide');
     const tabs = document.querySelectorAll('.footer-tabs button');
-    const progressBar = document.getElementById('progress-bar');
-    
     let currentIndex = 0;
-    const timePerSlide = 5000; // 5 seconds
-    let progressInterval;
-    let slideTimeout;
-    let isAutoPlaying = true;
-    let startTime;
+    
+    // Auto-advance logic for the VERY FIRST slide only
+    let slideTimeout = setTimeout(() => {
+      goToSlide(1);
+    }, 5000);
 
     function goToSlide(index, userTriggered = false) {
       if (index < 0 || index >= slides.length) return;
       
-      // Stop auto-play if user manually clicks a tab, so they can read at their own pace
+      // If the user clicks anything manually, cancel the initial 5-second timer
       if (userTriggered) {
-        isAutoPlaying = false;
-        clearInterval(progressInterval);
         clearTimeout(slideTimeout);
-        progressBar.style.width = '0%';
-        progressBar.style.opacity = '0';
       }
 
       // Transition classes
@@ -427,42 +436,10 @@
       if (activeTab) activeTab.classList.add('active');
 
       currentIndex = index;
-
-      // Manage auto-advance logic
-      if (isAutoPlaying) {
-        if (currentIndex < slides.length - 1) { // Don't auto-advance past the last slide (Contact form)
-            startProgress();
-            slideTimeout = setTimeout(() => {
-                goToSlide(currentIndex + 1);
-            }, timePerSlide);
-        } else {
-            // Stop on last slide
-            progressBar.style.width = '100%';
-            isAutoPlaying = false;
-        }
-      }
     }
 
-    function startProgress() {
-      clearInterval(progressInterval);
-      progressBar.style.width = '0%';
-      startTime = Date.now();
-      
-      progressInterval = setInterval(() => {
-        let elapsedTime = Date.now() - startTime;
-        let percentage = (elapsedTime / timePerSlide) * 100;
-        
-        if (percentage >= 100) {
-          percentage = 100;
-          clearInterval(progressInterval);
-        }
-        progressBar.style.width = percentage + '%';
-      }, 50); // Update bar frequently for smoothness
-    }
-
-    // Initialize first slide and start story
+    // Initialize first slide
     goToSlide(0);
-
   </script>
 
 </body>
