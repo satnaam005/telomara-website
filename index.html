@@ -378,25 +378,34 @@
           </div>
         </div>
 
-        <!-- REPLACED mailto: WITH SECURE FORMSPREE ENDPOINT -->
+        <!-- FORMSPREE ENDPOINT -->
         <!-- Replace YOUR_FORM_ID_HERE with your actual Formspree ID (e.g. xqkjoqvw) -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="content-card p-6 sm:p-8 space-y-4 text-left">
+        <form action="https://formspree.io/f/https://formspree.io/f/xgawkzej" method="POST" class="content-card p-6 sm:p-8 space-y-4 text-left">
           <div>
             <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="name">Full name</label>
-            <input id="name" name="Full_Name" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
+            <input id="name" name="Full_Name" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]" required>
           </div>
           <div>
             <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="email">Work email</label>
-            <input id="email" name="Email" type="email" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
+            <input id="email" name="Email" type="email" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]" required>
           </div>
           <div>
             <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="company">Company</label>
-            <input id="company" name="Company" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" required>
+            <input id="company" name="Company" type="text" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]" required>
           </div>
           <div>
             <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="notes">What would you like us to look at?</label>
-            <textarea id="notes" name="Notes" rows="2" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white" placeholder="e.g. batch records against 21 CFR"></textarea>
+            <textarea id="notes" name="Notes" rows="2" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]" placeholder="e.g. batch records against 21 CFR"></textarea>
           </div>
+          
+          <!-- Compliance / Consent Checkbox -->
+          <div class="flex items-start gap-2 mt-2">
+            <input type="checkbox" id="consent" name="Consent" required class="mt-0.5 w-4 h-4 cursor-pointer accent-[var(--brand-accent)] border-slate-300 rounded">
+            <label for="consent" class="text-[0.65rem] sm:text-xs text-[var(--ink-soft)] leading-snug cursor-pointer">
+              I consent to Telomara processing my data to contact me regarding this demo request. I have read the <a href="#" class="underline hover:text-[var(--brand-blue)]">Privacy Policy</a>.
+            </label>
+          </div>
+
           <button type="submit" class="btn-primary w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-lg font-semibold mt-2">Send Request</button>
         </form>
       </div>
