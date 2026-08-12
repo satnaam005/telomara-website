@@ -95,8 +95,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Extra top padding for the larger logo, extra bottom padding for the mobile footer */
-    padding: 6rem 1.5rem 11rem 1.5rem; 
+    /* Extra top padding for the header, extra bottom padding for the mobile footer */
+    padding: 7rem 1.5rem 11rem 1.5rem; 
     overflow-y: auto; 
   }
 
@@ -191,20 +191,29 @@
 <body>
 
   <!-- Persistent Brand Header -->
-  <div class="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 flex items-center gap-x-3">
-    <!-- Click to Zoom Logo -->
-    <img src="Telomara.jpeg" alt="Telomara Logo" onclick="openLogoZoom()" class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-md object-cover cursor-zoom-in hover:opacity-90 transition-opacity" title="Click to zoom">
-    
-    <!-- Click to go to start text -->
-    <div class="hidden sm:flex flex-col cursor-pointer hover:opacity-80 transition-opacity" onclick="goToSlide(0, true)" title="Restart Story">
-      <span class="text-xl sm:text-2xl font-display font-semibold tracking-tight text-white leading-none mt-1">Telomara</span>
-      <span class="text-[0.65rem] sm:text-[0.7rem] text-[var(--brand-accent)] font-mono tracking-widest uppercase mt-1.5">Intelligence. Secured.</span>
+  <div class="fixed top-4 left-4 sm:top-6 sm:left-6 right-4 sm:right-6 z-50 flex items-center justify-between flex-wrap gap-2 pointer-events-none">
+    <div class="flex items-center gap-x-2 sm:gap-x-3 pointer-events-auto">
+      <!-- Click to Zoom Logo -->
+      <img src="Telomara.jpeg" alt="Telomara Logo" onclick="openLogoZoom()" class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl shadow-md object-cover cursor-zoom-in hover:opacity-90 transition-opacity" title="Click to zoom">
+      
+      <!-- Click to go to start text -->
+      <div class="hidden md:flex flex-col cursor-pointer hover:opacity-80 transition-opacity" onclick="goToSlide(0, true)" title="Restart Story">
+        <span class="text-xl sm:text-2xl font-display font-semibold tracking-tight text-white leading-none mt-1">Telomara</span>
+        <span class="text-[0.65rem] sm:text-[0.7rem] text-[var(--brand-accent)] font-mono tracking-widest uppercase mt-1.5">Intelligence. Secured.</span>
+      </div>
+
+      <!-- Explicit Go Home Button -->
+      <button onclick="goToSlide(0, true)" class="ml-1 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-slate-200 hover:text-white hover:bg-white/20 transition-all cursor-pointer shadow-sm" aria-label="Go Home" title="Go Home">
+        <i class="fa-solid fa-house text-xs sm:text-base"></i>
+      </button>
     </div>
 
-    <!-- Explicit Go Home Button -->
-    <button onclick="goToSlide(0, true)" class="ml-1 sm:ml-3 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/20 transition-all cursor-pointer shadow-sm" aria-label="Go Home" title="Go Home">
-      <i class="fa-solid fa-house text-sm sm:text-base"></i>
-    </button>
+    <!-- Vision, Mission, Product Scope Header Tabs -->
+    <div class="flex items-center gap-1.5 sm:gap-2 pointer-events-auto overflow-x-auto max-w-full py-1">
+      <button onclick="goToSlide(6, true)" id="top-tab-6" class="text-[0.65rem] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-200 hover:text-white hover:bg-white/20 transition-all cursor-pointer whitespace-nowrap">Vision</button>
+      <button onclick="goToSlide(7, true)" id="top-tab-7" class="text-[0.65rem] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-200 hover:text-white hover:bg-white/20 transition-all cursor-pointer whitespace-nowrap">Mission</button>
+      <button onclick="goToSlide(8, true)" id="top-tab-8" class="text-[0.65rem] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20 bg-white/5 text-slate-200 hover:text-white hover:bg-white/20 transition-all cursor-pointer whitespace-nowrap">Product Scope</button>
+    </div>
   </div>
 
   <div class="story-container">
@@ -411,6 +420,77 @@
       </div>
     </div>
 
+    <!-- SLIDE 6: Vision -->
+    <div class="slide" id="slide-6">
+      <div class="max-w-4xl mx-auto w-full">
+        <div class="content-card p-6 sm:p-10 text-left">
+          <span class="eyebrow">Vision</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-6 text-[var(--ink)] tracking-tight">Vision</h2>
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)]">
+            To build AI systems that match the rigor of the laboratories they come from — trustworthy enough to operate within healthcare, industry, and public infrastructure, and disciplined enough to earn the confidence of the experts who rely on them. We envision a future where intelligent systems don't replace scientific and clinical judgment but extend it: catching what fatigue misses, connecting what silos separate, and making deep domain expertise accessible at scale — from a hospital ward to a factory floor to a city's power grid.
+          </p>
+        </div>
+        <button class="btn-next-arrow" onclick="goToSlide(7, true)" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: Mission -->
+    <div class="slide" id="slide-7">
+      <div class="max-w-4xl mx-auto w-full">
+        <div class="content-card p-6 sm:p-10 text-left">
+          <span class="eyebrow">Mission</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">Mission</h2>
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)] mb-4">
+            Our mission is to develop domain-specialized AI solutions that bridge advanced scientific research with real-world applications across health, industry, and sustainability. Drawing from deep expertise in neuro-virology, nanobiotechnology, neuronal systems, and green nanotechnology, we build intelligent systems that:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-[var(--ink-soft)] mb-6 pl-2">
+            <li>Enhance personal wellness through nutrition intelligence, mental health support, and personalized counselling.</li>
+            <li>Accelerate disease mitigation through advanced diagnostic and decision-support applications.</li>
+            <li>Drive industrial efficiency and regulatory compliance with secure, air-gapped AI.</li>
+            <li>Advance green energy and environmental sustainability.</li>
+            <li>Enable smarter, more resilient cities through intelligent planning systems.</li>
+            <li>Unlock the potential of nanotechnology-driven innovations.</li>
+          </ul>
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)] font-medium pt-4 border-t hairline">
+            We are committed to creating AI that is scientifically grounded, privacy-first, and designed to deliver measurable impact while remaining accessible and trustworthy.
+          </p>
+        </div>
+        <button class="btn-next-arrow" onclick="goToSlide(8, true)" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Product Scope -->
+    <div class="slide" id="slide-8">
+      <div class="max-w-4xl mx-auto w-full">
+        <div class="content-card p-6 sm:p-10 text-left">
+          <span class="eyebrow">Product Scope</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">Product Scope</h2>
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)] mb-4">
+            Telomara develops a multi-domain portfolio of AI solutions, leveraging deep scientific foundations in nanotechnology, neuroscience, and biotechnology. Our current and expanding product scope includes:
+          </p>
+          <div class="space-y-3 text-sm sm:text-base text-[var(--ink-soft)] mb-6">
+            <p><strong>1. AI Solutions for the Health Sector:</strong> Intelligent systems for healthcare institutions focused on clinical decision support, regulatory compliance, quality assurance, and data-secure AI workflows.</p>
+            <p><strong>2. AI in Personal Wellness:</strong> Personalized platforms that support nutrition optimization, mental health counselling, lifestyle guidance, and continuous well-being management through adaptive AI.</p>
+            <p><strong>3. AI in Disease Mitigation Applications:</strong> Advanced AI applications designed to support early detection frameworks, risk assessment, therapeutic guidance, and disease management pathways, informed by research in virology, neuroinflammation, and cellular systems.</p>
+            <p><strong>4. AI in Green Energy Sector:</strong> Intelligent solutions for energy optimization, predictive maintenance, sustainability analytics, and efficient resource management in renewable and clean energy systems.</p>
+            <p><strong>5. AI Solutions for the Industrial Sector:</strong> Secure, on-premise and air-gapped AI systems for manufacturing compliance, quality control, process optimization, and regulatory documentation intelligence — particularly in regulated industries such as pharmaceuticals and biotechnology.</p>
+            <p><strong>6. AI in Nanotechnology:</strong> AI-driven tools that support nanomaterial design insights, green synthesis optimization, nanotoxicology assessment, and intelligent analysis of nano-bio interactions, building on extensive research expertise in nanostructures and nanoparticle applications.</p>
+            <p><strong>7. AI in Smart City Planning:</strong> Decision-support systems for urban infrastructure and resource planning, helping cities plan and allocate resources more intelligently and sustainably.</p>
+          </div>
+          <p class="text-xs sm:text-sm italic text-[var(--ink-soft)] pt-4 border-t hairline">
+            *Telomara's current flagship product — the Augmented Review Assistant for Life Sciences — is our first proof point of this approach, and the foundation from which we're expanding into these adjacent domains.*
+          </p>
+        </div>
+        <button class="btn-next-arrow" onclick="goToSlide(5, true)" aria-label="Request Demo">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+
   </div>
 
   <!-- PERSISTENT FOOTER (Mobile Optimized) -->
@@ -452,6 +532,13 @@
   <script>
     const slides = document.querySelectorAll('.slide');
     const tabs = document.querySelectorAll('.footer-tabs button');
+    
+    const topTabs = {
+      6: document.getElementById('top-tab-6'),
+      7: document.getElementById('top-tab-7'),
+      8: document.getElementById('top-tab-8')
+    };
+
     let currentIndex = 0;
     
     // Auto-advance logic for the VERY FIRST slide only
@@ -482,10 +569,22 @@
         }
       });
 
-      // Update Tabs styling
+      // Update Footer Tabs styling
       tabs.forEach(tab => tab.classList.remove('active'));
       const activeTab = document.getElementById(`tab-${index}`);
       if (activeTab) activeTab.classList.add('active');
+
+      // Update Top Tabs styling
+      Object.values(topTabs).forEach(tab => {
+        if (tab) {
+          tab.classList.remove('bg-white', 'text-[var(--brand-blue)]');
+          tab.classList.add('bg-white/5', 'text-slate-200');
+        }
+      });
+      if (topTabs[index]) {
+        topTabs[index].classList.remove('bg-white/5', 'text-slate-200');
+        topTabs[index].classList.add('bg-white', 'text-[var(--brand-blue)]');
+      }
 
       currentIndex = index;
     }
@@ -498,10 +597,7 @@
     const zoomedLogo = document.getElementById('zoomed-logo-img');
 
     function openLogoZoom() {
-      // Prevent the event from bubbling up if necessary
       logoModal.classList.remove('hidden');
-      
-      // Small delay allows display:flex to apply before changing opacity for smooth fade-in
       setTimeout(() => {
         logoModal.classList.remove('opacity-0');
         zoomedLogo.classList.remove('scale-95');
@@ -513,8 +609,6 @@
       logoModal.classList.add('opacity-0');
       zoomedLogo.classList.remove('scale-100');
       zoomedLogo.classList.add('scale-95');
-      
-      // Wait for fade-out transition to finish before hiding
       setTimeout(() => {
         logoModal.classList.add('hidden');
       }, 300);
