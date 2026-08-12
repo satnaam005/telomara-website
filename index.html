@@ -425,20 +425,69 @@
       </div>
     </div>
 
-    <!-- SLIDE 6: Vision -->
+    <!-- SLIDE 6: Vision (Orbital Map Layout) -->
     <div class="slide" id="slide-6">
-      <div class="max-w-4xl mx-auto w-full flex-shrink-0">
-        <div class="content-card p-6 sm:p-10 text-left">
-          <span class="eyebrow">Vision</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-6 text-[var(--ink)] tracking-tight">One discipline, mapped across every domain that needs it.</h2>
-          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)]">
+      <div class="max-w-6xl mx-auto w-full flex-shrink-0 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+        <div class="text-left">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-6 h-px bg-[var(--brand-accent)]"></div>
+            <span class="eyebrow !mb-0">Vision</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-2 mb-6 text-white tracking-tight leading-[1.1]">
+            One discipline, mapped across every domain that needs it.
+          </h2>
+          <p class="text-base sm:text-lg leading-relaxed text-slate-300">
             We believe rigor doesn't have to stay in the lab. The same standard of evidence that governs a batch record can govern a diagnosis, a power grid, or a city plan — if the AI reasoning it every step of the way is built to be checked, not just trusted.
           </p>
         </div>
-        <button class="btn-next-arrow" onclick="goToSlide(7, true)" aria-label="Next slide">
-          <i class="fa-solid fa-arrow-down"></i>
-        </button>
+        
+        <!-- Orbit SVG adapted for Dark Theme -->
+        <div class="flex flex-col items-center justify-center">
+          <svg width="360" height="340" viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-full h-auto">
+            <!-- Rings -->
+            <circle cx="180" cy="168" r="120" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="180" cy="168" r="78" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 6"/>
+            <!-- Center Core -->
+            <circle cx="180" cy="168" r="40" fill="#0A192F" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="180" y="163" text-anchor="middle" fill="#F8FAFC" font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing="0.5" font-weight="600">TELOMARA</text>
+            <text x="180" y="176" text-anchor="middle" fill="#E39B3C" font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing="0.5" font-weight="600">CORE</text>
+            <!-- Inner ring nodes -->
+            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#cbd5e1">
+              <circle cx="180" cy="90" r="5" fill="#38BDF8"/>
+              <text x="180" y="76" text-anchor="middle">Health</text>
+              <circle cx="248" cy="130" r="5" fill="#38BDF8"/>
+              <text x="286" y="127" text-anchor="middle">Wellness</text>
+              <circle cx="248" cy="206" r="5" fill="#38BDF8"/>
+              <text x="292" y="222" text-anchor="middle">Disease</text>
+              <circle cx="112" cy="130" r="5" fill="#38BDF8"/>
+              <text x="74" y="127" text-anchor="middle">Nanotech</text>
+            </g>
+            <!-- Outer ring nodes -->
+            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#cbd5e1">
+              <circle cx="180" cy="48" r="5" fill="#E39B3C"/>
+              <text x="180" y="34" text-anchor="middle">Green Energy</text>
+              <circle cx="112" cy="206" r="5" fill="#E39B3C"/>
+              <text x="70" y="222" text-anchor="middle">Industrial</text>
+              <circle cx="180" cy="288" r="5" fill="#E39B3C"/>
+              <text x="180" y="306" text-anchor="middle">Smart Cities</text>
+            </g>
+            <!-- Connecting lines -->
+            <g stroke="rgba(255,255,255,0.15)" stroke-width="1">
+              <line x1="180" y1="128" x2="180" y2="95"/>
+              <line x1="214" y1="150" x2="243" y2="132"/>
+              <line x1="214" y1="188" x2="243" y2="204"/>
+              <line x1="146" y1="150" x2="117" y2="132"/>
+              <line x1="180" y1="90" x2="180" y2="53"/>
+              <line x1="248" y1="206" x2="180" y2="285"/>
+              <line x1="112" y1="206" x2="180" y2="285"/>
+            </g>
+          </svg>
+          <div class="font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400 mt-4">SEVEN DOMAINS · ONE SCIENTIFIC CORE</div>
+        </div>
       </div>
+      <button class="btn-next-arrow" onclick="goToSlide(7, true)" aria-label="Next slide">
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
     </div>
 
     <!-- SLIDE 7: Mission -->
