@@ -61,6 +61,7 @@
     transition: all 0.2s ease;
     cursor: pointer;
     margin: 2rem auto 0 auto;
+    flex-shrink: 0;
   }
   .btn-next-arrow:hover {
     background: white;
@@ -94,10 +95,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* Extra top padding for the header, extra bottom padding for the mobile footer */
-    padding: 7rem 1.5rem 11rem 1.5rem; 
+    /* Safe flex centering: pseudo-elements below replace justify-content: center */
+    /* This prevents tall content from clipping at the top */
+    padding: 7rem 1.5rem 10rem 1.5rem; 
     overflow-y: auto; 
+  }
+  
+  .slide::before,
+  .slide::after {
+    content: "";
+    margin: auto;
   }
 
   .slide.active {
@@ -142,6 +149,7 @@
     color: var(--ink);
     border-radius: 1rem;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
   }
   
   .doc-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); }
@@ -232,7 +240,7 @@
 
     <!-- SLIDE 1: The Product Reveal -->
     <div class="slide" id="slide-1">
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-4xl mx-auto text-center w-full flex-shrink-0">
         <h1 class="font-display text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight">
           We bring to you our first product, which is an AI-powered Augmented Review Assistant for Life Sciences.
         </h1>
@@ -244,7 +252,7 @@
 
     <!-- SLIDE 2: The Bottleneck -->
     <div class="slide" id="slide-2">
-      <div class="max-w-6xl mx-auto w-full">
+      <div class="max-w-6xl mx-auto w-full flex-shrink-0">
         <div class="text-center mb-8 sm:mb-10">
           <span class="eyebrow">The Bottleneck</span>
           <h2 class="font-display text-2xl sm:text-4xl md:text-5xl font-semibold mt-3 tracking-tight">
@@ -282,7 +290,7 @@
 
     <!-- SLIDE 3: The Solution (Trace Map) -->
     <div class="slide" id="slide-3">
-      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8 sm:gap-12 items-center flex-shrink-0">
         <div class="text-center lg:text-left">
           <span class="eyebrow">The Solution</span>
           <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-3 tracking-tight leading-[1.05]">
@@ -339,7 +347,7 @@
 
     <!-- SLIDE 4: The Team -->
     <div class="slide" id="slide-4">
-      <div class="max-w-5xl mx-auto w-full">
+      <div class="max-w-5xl mx-auto w-full flex-shrink-0">
         <div class="mb-8 sm:mb-10 text-center">
           <span class="eyebrow">The Founders</span>
           <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2 sm:mt-3 tracking-tight text-white">Connecting scientific research, digital QMS, and business ops.</h2>
@@ -374,7 +382,7 @@
 
     <!-- SLIDE 5: Contact / Demo -->
     <div class="slide" id="slide-5">
-      <div class="max-w-4xl mx-auto w-full grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div class="max-w-4xl mx-auto w-full grid md:grid-cols-2 gap-8 sm:gap-12 items-center flex-shrink-0">
         <div class="text-center md:text-left">
           <span class="eyebrow">Get Started</span>
           <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2 sm:mt-3 tracking-tight">Request a demo</h2>
@@ -387,8 +395,6 @@
           </div>
         </div>
 
-        <!-- FORMSPREE ENDPOINT -->
-        <!-- Replace YOUR_FORM_ID_HERE with your actual Formspree ID (e.g. xqkjoqvw) -->
         <form action="https://formspree.io/f/xgawkzej" method="POST" class="content-card p-6 sm:p-8 space-y-4 text-left">
           <div>
             <label class="text-xs sm:text-sm font-medium block mb-1 text-[var(--ink)]" for="name">Full name</label>
@@ -407,7 +413,6 @@
             <textarea id="notes" name="Notes" rows="2" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]" placeholder="e.g. batch records against 21 CFR"></textarea>
           </div>
           
-          <!-- Compliance / Consent Checkbox -->
           <div class="flex items-start gap-2 mt-2">
             <input type="checkbox" id="consent" name="Consent" required class="mt-0.5 w-4 h-4 cursor-pointer accent-[var(--brand-accent)] border-slate-300 rounded">
             <label for="consent" class="text-[0.65rem] sm:text-xs text-[var(--ink-soft)] leading-snug cursor-pointer">
@@ -422,7 +427,7 @@
 
     <!-- SLIDE 6: Vision -->
     <div class="slide" id="slide-6">
-      <div class="max-w-4xl mx-auto w-full">
+      <div class="max-w-4xl mx-auto w-full flex-shrink-0">
         <div class="content-card p-6 sm:p-10 text-left">
           <span class="eyebrow">Vision</span>
           <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-6 text-[var(--ink)] tracking-tight">Vision</h2>
@@ -438,7 +443,7 @@
 
     <!-- SLIDE 7: Mission -->
     <div class="slide" id="slide-7">
-      <div class="max-w-4xl mx-auto w-full">
+      <div class="max-w-4xl mx-auto w-full flex-shrink-0">
         <div class="content-card p-6 sm:p-10 text-left">
           <span class="eyebrow">Mission</span>
           <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">Mission</h2>
@@ -465,7 +470,7 @@
 
     <!-- SLIDE 8: Product Scope -->
     <div class="slide" id="slide-8">
-      <div class="max-w-4xl mx-auto w-full">
+      <div class="max-w-4xl mx-auto w-full flex-shrink-0">
         <div class="content-card p-6 sm:p-10 text-left">
           <span class="eyebrow">Product Scope</span>
           <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">Product Scope</h2>
@@ -587,6 +592,9 @@
       }
 
       currentIndex = index;
+      
+      // Scroll the container back to the top automatically when switching slides
+      slides[index].scrollTop = 0;
     }
 
     // Initialize first slide
