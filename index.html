@@ -425,7 +425,7 @@
       </div>
     </div>
 
-    <!-- SLIDE 6: Vision (Orbital Map Layout) -->
+    <!-- SLIDE 6: Vision (Company Blue BG, White Orbit Card) -->
     <div class="slide" id="slide-6">
       <div class="max-w-6xl mx-auto w-full flex-shrink-0 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
         <div class="text-left">
@@ -441,38 +441,38 @@
           </p>
         </div>
         
-        <!-- Orbit SVG adapted for Dark Theme -->
-        <div class="flex flex-col items-center justify-center">
+        <!-- Orbit Diagram in White Content Card -->
+        <div class="content-card p-6 sm:p-10 flex flex-col items-center justify-center">
           <svg width="360" height="340" viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-full h-auto">
             <!-- Rings -->
-            <circle cx="180" cy="168" r="120" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 6"/>
-            <circle cx="180" cy="168" r="78" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="180" cy="168" r="120" stroke="#DAD6CC" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="180" cy="168" r="78" stroke="#DAD6CC" stroke-width="1" stroke-dasharray="2 6"/>
             <!-- Center Core -->
-            <circle cx="180" cy="168" r="40" fill="#0A192F" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <text x="180" y="163" text-anchor="middle" fill="#F8FAFC" font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing="0.5" font-weight="600">TELOMARA</text>
+            <circle cx="180" cy="168" r="40" fill="#0E1B2C"/>
+            <text x="180" y="163" text-anchor="middle" fill="#FAFAF8" font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing="0.5" font-weight="600">TELOMARA</text>
             <text x="180" y="176" text-anchor="middle" fill="#E39B3C" font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing="0.5" font-weight="600">CORE</text>
             <!-- Inner ring nodes -->
-            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#cbd5e1">
-              <circle cx="180" cy="90" r="5" fill="#38BDF8"/>
-              <text x="180" y="76" text-anchor="middle">Health</text>
-              <circle cx="248" cy="130" r="5" fill="#38BDF8"/>
-              <text x="286" y="127" text-anchor="middle">Wellness</text>
-              <circle cx="248" cy="206" r="5" fill="#38BDF8"/>
-              <text x="292" y="222" text-anchor="middle">Disease</text>
-              <circle cx="112" cy="130" r="5" fill="#38BDF8"/>
-              <text x="74" y="127" text-anchor="middle">Nanotech</text>
+            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#0E1B2C">
+              <circle cx="180" cy="90" r="5" fill="#2D5FDF"/>
+              <text x="180" y="76" text-anchor="middle" font-weight="500">Health</text>
+              <circle cx="248" cy="130" r="5" fill="#2D5FDF"/>
+              <text x="286" y="127" text-anchor="middle" font-weight="500">Wellness</text>
+              <circle cx="248" cy="206" r="5" fill="#2D5FDF"/>
+              <text x="292" y="222" text-anchor="middle" font-weight="500">Disease</text>
+              <circle cx="112" cy="130" r="5" fill="#2D5FDF"/>
+              <text x="74" y="127" text-anchor="middle" font-weight="500">Nanotech</text>
             </g>
             <!-- Outer ring nodes -->
-            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#cbd5e1">
+            <g font-family="'Inter', sans-serif" font-size="10.5" fill="#0E1B2C">
               <circle cx="180" cy="48" r="5" fill="#E39B3C"/>
-              <text x="180" y="34" text-anchor="middle">Green Energy</text>
+              <text x="180" y="34" text-anchor="middle" font-weight="500">Green Energy</text>
               <circle cx="112" cy="206" r="5" fill="#E39B3C"/>
-              <text x="70" y="222" text-anchor="middle">Industrial</text>
+              <text x="70" y="222" text-anchor="middle" font-weight="500">Industrial</text>
               <circle cx="180" cy="288" r="5" fill="#E39B3C"/>
-              <text x="180" y="306" text-anchor="middle">Smart Cities</text>
+              <text x="180" y="306" text-anchor="middle" font-weight="500">Smart Cities</text>
             </g>
             <!-- Connecting lines -->
-            <g stroke="rgba(255,255,255,0.15)" stroke-width="1">
+            <g stroke="#B9C3D8" stroke-width="1">
               <line x1="180" y1="128" x2="180" y2="95"/>
               <line x1="214" y1="150" x2="243" y2="132"/>
               <line x1="214" y1="188" x2="243" y2="204"/>
@@ -482,7 +482,7 @@
               <line x1="112" y1="206" x2="180" y2="285"/>
             </g>
           </svg>
-          <div class="font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400 mt-4">SEVEN DOMAINS · ONE SCIENTIFIC CORE</div>
+          <div class="font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-500 mt-4">SEVEN DOMAINS · ONE SCIENTIFIC CORE</div>
         </div>
       </div>
       <button class="btn-next-arrow" onclick="goToSlide(7, true)" aria-label="Next slide">
@@ -490,138 +490,139 @@
       </button>
     </div>
 
-    <!-- SLIDE 7: Mission -->
+    <!-- SLIDE 7: Mission (Company Blue BG, White Cards) -->
     <div class="slide" id="slide-7">
-      <div class="max-w-5xl mx-auto w-full flex-shrink-0">
-        <div class="content-card p-6 sm:p-10 text-left">
+      <div class="max-w-6xl mx-auto w-full flex-shrink-0">
+        <div class="text-left mb-8">
           <span class="eyebrow">Mission</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">How we build, stated as plainly as we'd want it audited.</h2>
-          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)] mb-8">
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-white tracking-tight">How we build, stated as plainly as we'd want it audited.</h2>
+          <p class="text-sm sm:text-base leading-relaxed text-slate-300 max-w-3xl">
             Our team's roots are in bench science and regulated quality systems. We hold applied AI to the same standard — evidence, traceability, and a human who stays in charge of the decision.
           </p>
+        </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50">
-               <div class="flex justify-between items-start mb-3">
-                 <span class="font-mono text-xs font-bold text-white bg-[var(--brand-blue)] px-2 py-1 rounded">01</span>
-                 <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider">PRINCIPLE · EVIDENCE</span>
-               </div>
-               <h3 class="font-bold text-[var(--ink)] text-base mb-2">Ground every model in verifiable domain science</h3>
-               <p class="text-sm text-[var(--ink-soft)]">No generic automation dressed up as insight — every output traces back to a defensible scientific or regulatory basis.</p>
-            </div>
-            
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50">
-               <div class="flex justify-between items-start mb-3">
-                 <span class="font-mono text-xs font-bold text-white bg-[var(--brand-blue)] px-2 py-1 rounded">02</span>
-                 <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider">PRINCIPLE · AUTHORITY</span>
-               </div>
-               <h3 class="font-bold text-[var(--ink)] text-base mb-2">Keep the human in command of consequential decisions</h3>
-               <p class="text-sm text-[var(--ink-soft)]">Our tools flag, cross-reference, and surface — they don't approve, diagnose, or release on anyone's behalf.</p>
-            </div>
-            
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50">
-               <div class="flex justify-between items-start mb-3">
-                 <span class="font-mono text-xs font-bold text-white bg-[var(--brand-blue)] px-2 py-1 rounded">03</span>
-                 <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider">PRINCIPLE · TRUST</span>
-               </div>
-               <h3 class="font-bold text-[var(--ink)] text-base mb-2">Design for trust before scale</h3>
-               <p class="text-sm text-[var(--ink-soft)]">Transparent reasoning, auditable outputs, and on-premise deployment wherever the domain demands data stay put.</p>
-            </div>
-            
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50">
-               <div class="flex justify-between items-start mb-3">
-                 <span class="font-mono text-xs font-bold text-white bg-[var(--brand-blue)] px-2 py-1 rounded">04</span>
-                 <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider">PRINCIPLE · APPLIED</span>
-               </div>
-               <h3 class="font-bold text-[var(--ink)] text-base mb-2">Move from the bench to the workflow</h3>
-               <p class="text-sm text-[var(--ink-soft)]">Research-grade thinking, packaged so a reviewer, clinician, or planner can use it without a PhD to interpret it.</p>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div class="content-card p-6 border border-slate-200">
+             <div class="flex justify-between items-start mb-4">
+               <span class="font-mono text-xs font-bold text-white bg-[var(--ink)] px-2 py-1 rounded">01</span>
+               <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider uppercase">Principle · Evidence</span>
+             </div>
+             <h3 class="font-display font-semibold text-[var(--ink)] text-lg mb-2">Ground every model in verifiable domain science</h3>
+             <p class="text-sm text-[var(--ink-soft)]">No generic automation dressed up as insight — every output traces back to a defensible scientific or regulatory basis.</p>
+          </div>
+          
+          <div class="content-card p-6 border border-slate-200">
+             <div class="flex justify-between items-start mb-4">
+               <span class="font-mono text-xs font-bold text-white bg-[var(--ink)] px-2 py-1 rounded">02</span>
+               <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider uppercase">Principle · Authority</span>
+             </div>
+             <h3 class="font-display font-semibold text-[var(--ink)] text-lg mb-2">Keep the human in command of consequential decisions</h3>
+             <p class="text-sm text-[var(--ink-soft)]">Our tools flag, cross-reference, and surface — they don't approve, diagnose, or release on anyone's behalf.</p>
+          </div>
+          
+          <div class="content-card p-6 border border-slate-200">
+             <div class="flex justify-between items-start mb-4">
+               <span class="font-mono text-xs font-bold text-white bg-[var(--ink)] px-2 py-1 rounded">03</span>
+               <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider uppercase">Principle · Trust</span>
+             </div>
+             <h3 class="font-display font-semibold text-[var(--ink)] text-lg mb-2">Design for trust before scale</h3>
+             <p class="text-sm text-[var(--ink-soft)]">Transparent reasoning, auditable outputs, and on-premise deployment wherever the domain demands data stay put.</p>
+          </div>
+          
+          <div class="content-card p-6 border border-slate-200">
+             <div class="flex justify-between items-start mb-4">
+               <span class="font-mono text-xs font-bold text-white bg-[var(--ink)] px-2 py-1 rounded">04</span>
+               <span class="font-mono text-[10px] text-[var(--brand-accent)] font-semibold tracking-wider uppercase">Principle · Applied</span>
+             </div>
+             <h3 class="font-display font-semibold text-[var(--ink)] text-lg mb-2">Move from the bench to the workflow</h3>
+             <p class="text-sm text-[var(--ink-soft)]">Research-grade thinking, packaged so a reviewer, clinician, or planner can use it without a PhD to interpret it.</p>
           </div>
         </div>
+        
         <button class="btn-next-arrow" onclick="goToSlide(8, true)" aria-label="Next slide">
           <i class="fa-solid fa-arrow-down"></i>
         </button>
       </div>
     </div>
 
-    <!-- SLIDE 8: Product Scope -->
+    <!-- SLIDE 8: Product Scope (Company Blue BG, White Cards) -->
     <div class="slide" id="slide-8">
       <div class="max-w-6xl mx-auto w-full flex-shrink-0">
-        <div class="content-card p-6 sm:p-10 text-left">
+        <div class="text-left mb-8">
           <span class="eyebrow">Product Scope</span>
-          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-[var(--ink)] tracking-tight">Seven domains, one platform.</h2>
-          <p class="text-sm sm:text-base leading-relaxed text-[var(--ink-soft)] mb-8">
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold mt-2 mb-4 text-white tracking-tight">Seven domains, one platform.</h2>
+          <p class="text-sm sm:text-base leading-relaxed text-slate-300 max-w-3xl">
             Our flagship product proves the approach in life sciences. Each additional domain applies the same core: read the data, map it to what governs it, flag what needs a human.
           </p>
+        </div>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-            
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 4.5c2 0 3.5 1 5 2.5 1.5-1.5 3-2.5 5-2.5 4 0 6.5 4 4.5 8-2.5 4.15-9.5 8.5-9.5 8.5z"/><path d="M9 12h2l1-2 2 4 1-2h2"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">AI for Health</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Augmented review and decision-support for regulated healthcare and life-sciences workflows — our flagship, live today.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-emerald-700">Live · Flagship</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 4.5c2 0 3.5 1 5 2.5 1.5-1.5 3-2.5 5-2.5 4 0 6.5 4 4.5 8-2.5 4.15-9.5 8.5-9.5 8.5z"/><path d="M9 12h2l1-2 2 4 1-2h2"/></svg>
             </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><path d="M12 3c0 6-4 7-4 12a4 4 0 0 0 8 0c0-5-4-6-4-12z"/><path d="M12 21v-6"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">Personal Wellness</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Nutrition, counselling, and mental-health support — personalized guidance that respects the sensitivity of the data behind it.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-accent)]">In development</div>
-            </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">Disease Mitigation</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Earlier detection and response tools, grounded in our team's own virology and neuroscience research.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-accent)]">In development</div>
-            </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">Green Energy</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Optimization for generation, storage, and distribution, supporting more efficient, sustainable infrastructure.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-blue)] opacity-60">Roadmap</div>
-            </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">Industrial Systems</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Applied AI for process monitoring and quality assurance, built on the same rigor as regulated environments.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-blue)] opacity-60">Roadmap</div>
-            </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] mb-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M12 12L5 6M12 12l7-6M12 12l-7 6M12 12l7 6"/></svg>
-              </div>
-              <h3 class="font-bold text-[var(--ink)] mb-2">Nanotechnology</h3>
-              <p class="text-sm text-[var(--ink-soft)] flex-grow mb-3">Computational and AI-assisted nanomaterial design, connecting our founders' own nanobiotechnology research to applied tools.</p>
-              <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-blue)] opacity-60">Roadmap</div>
-            </div>
-
-            <div class="p-5 border border-slate-200 rounded-xl bg-slate-50 flex flex-col sm:flex-row sm:items-center gap-4 lg:col-span-3">
-              <div class="w-10 h-10 rounded-lg bg-[var(--brand-blue)]/10 flex items-center justify-center text-[var(--brand-blue)] flex-shrink-0">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" stroke-width="1.6"><path d="M3 21V10l5-3 5 3v11M13 21V6l5-3v18M3 21h18"/></svg>
-              </div>
-              <div class="flex-grow">
-                <h3 class="font-bold text-[var(--ink)] mb-1">Smart City Planning</h3>
-                <p class="text-sm text-[var(--ink-soft)] m-0">Decision-support for urban infrastructure and resource planning — helping cities allocate resources more intelligently.</p>
-              </div>
-              <div class="font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-blue)] opacity-60 flex-shrink-0">Roadmap</div>
-            </div>
-
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">AI for Health</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Augmented review and decision-support for regulated healthcare and life-sciences workflows — our flagship, live today.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-emerald-700">Live · Flagship</div>
           </div>
+
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><path d="M12 3c0 6-4 7-4 12a4 4 0 0 0 8 0c0-5-4-6-4-12z"/><path d="M12 21v-6"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">Personal Wellness</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Nutrition, counselling, and mental-health support — personalized guidance that respects the sensitivity of the data behind it.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-accent)]">In development</div>
+          </div>
+
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">Disease Mitigation</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Earlier detection and response tools, grounded in our team's own virology and neuroscience research.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-[var(--brand-accent)]">In development</div>
+          </div>
+
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">Green Energy</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Optimization for generation, storage, and distribution, supporting more efficient, sustainable infrastructure.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400">Roadmap</div>
+          </div>
+
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">Industrial Systems</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Applied AI for process monitoring and quality assurance, built on the same rigor as regulated environments.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400">Roadmap</div>
+          </div>
+
+          <div class="content-card p-6 flex flex-col border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M12 12L5 6M12 12l7-6M12 12l-7 6M12 12l7 6"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-2">Nanotechnology</h3>
+            <p class="text-sm text-[var(--ink-soft)] flex-grow mb-6 leading-relaxed">Computational and AI-assisted nanomaterial design, connecting our founders' own nanobiotechnology research to applied tools.</p>
+            <div class="mt-auto font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400">Roadmap</div>
+          </div>
+
+          <div class="content-card p-6 flex flex-col sm:flex-row sm:items-center gap-4 lg:col-span-3 border border-slate-200">
+            <div class="w-10 h-10 rounded-lg flex items-center text-[var(--ink)] flex-shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" stroke-width="1.6"><path d="M3 21V10l5-3 5 3v11M13 21V6l5-3v18M3 21h18"/></svg>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-display font-semibold text-lg text-[var(--ink)] mb-1">Smart City Planning</h3>
+              <p class="text-sm text-[var(--ink-soft)] m-0 leading-relaxed">Decision-support for urban infrastructure and resource planning — helping cities allocate resources more intelligently.</p>
+            </div>
+            <div class="font-mono text-[10px] tracking-widest uppercase font-semibold text-slate-400 flex-shrink-0">Roadmap</div>
+          </div>
+
         </div>
         <button class="btn-next-arrow" onclick="goToSlide(5, true)" aria-label="Request Demo">
           <i class="fa-solid fa-arrow-down"></i>
